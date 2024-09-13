@@ -33,7 +33,7 @@ export const Navbar = () => {
                 <TailcastLogo />
               </div>
               <div className="text-white font-['Inter'] font-bold text-xl">
-                Tailcast
+                Translate Store
               </div>
             </div>
           </a>
@@ -67,12 +67,11 @@ export const Navbar = () => {
             <a
               className="text-white main-border-gray rounded-xl
            bg-bgDark2 hover:bg-bgDark3  border-gray-700 pl-6 pr-8 pt-2 pb-2 text-sm flex"
-              href="https://github.com/matt765/Tidestream"
+              href="https://translatestore.vercel.app"
               target="_blank"
-              aria-label="source code"
+              aria-label="app"
             >
-              <GithubIcon />
-              <span className="pt-px">Source code</span>
+              <span className="pt-px">Sign in</span>
             </a>
           </div>
         </motion.div>
