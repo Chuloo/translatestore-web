@@ -5,23 +5,20 @@ import { TwitterIcon } from "../assets/icons/TwitterIcon";
 
 const footerData = [
   {
-    title: "Products",
-    items: ["Services", "About Us", "News and Stories", "Roadmap"],
+    title: "Terms of Service",
+    link: "#",
   },
   {
-    title: "Important Links",
-    items: [
-      "Organization Team",
-      "Our Journeys",
-      "Pricing Plans",
-      "Roadmap",
-      "Terms & Conditions",
-      "Privacy Policy",
-    ],
+    title: "Privacy policy",
+    link: "#",
   },
   {
-    title: "Company",
-    items: ["About Us", "Jobs", "Press", "Contact Us"],
+    title: "Blog",
+    link: "/blog",
+  },
+  {
+    title: "Contact",
+    link: "mailto:hi@translatestore.ai",
   },
 ];
 
@@ -67,56 +64,17 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="w-full lg:w-2/3  lg:pl-16 hidden lg:flex flex-wrap justify-between">
-              <div className="w-full md:w-1/3 lg:w-auto mb-16 md:mb-0">
-                <h3 className="mb-6 text-2xl font-bold text-primaryText">
-                  Products
-                </h3>
-                <ul>
-                  {footerData[0].items.map((item, index) => (
-                    <li key={`${item}-${index}`} className="mb-4">
+            <div className="w-full lg:w-2/3 lg:pl-16 hidden lg:flex flex-wrap justify-between">
+              <div className="w-full md:w-1/3 lg:w-auto lg:mt-[9%]">
+                <ul className="flex felx row gap-5">
+                  {footerData.map((item, index) => (
+                    <li key={`${item.title}-${index}`} className="mb-4">
                       <a
                         className="text-gray-400 hover:text-gray-300"
-                        href="#"
-                        aria-label={item}
+                        href={item.link}
+                        aria-label={item.title}
                       >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="w-full md:w-1/3 lg:w-auto mb-16 md:mb-0">
-                <h3 className="mb-6 text-2xl font-bold text-primaryText">
-                  Important Links
-                </h3>
-                <ul>
-                  {footerData[1].items.map((item, index) => (
-                    <li key={`${item}-${index}`} className="mb-4">
-                      <a
-                        className="text-gray-400 hover:text-gray-300"
-                        href="#"
-                        aria-label={item}
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="w-full md:w-1/3 lg:w-auto">
-                <h3 className="mb-6 text-2xl font-bold text-primaryText">
-                  Company
-                </h3>
-                <ul>
-                  {footerData[2].items.map((item, index) => (
-                    <li key={`${item}-${index}`} className="mb-4">
-                      <a
-                        className="text-gray-400 hover:text-gray-300"
-                        href="#"
-                        aria-label={item}
-                      >
-                        {item}
+                        {item.title}
                       </a>
                     </li>
                   ))}

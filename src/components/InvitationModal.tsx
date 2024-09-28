@@ -4,7 +4,11 @@ import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 import { CloseIcon } from "../assets/icons/CloseIcon";
 import { TailcastLogo } from "../assets/logos/TailcastLogo";
 
-export const InvitationModal = ({ setIsOpen }) => (
+export const InvitationModal = ({
+  setIsOpen,
+}: {
+  setIsOpen: (boolean) => void;
+}) => (
   <AnimatePresence>
     <motion.div
       initial={{ opacity: 0, zIndex: 50 }}
@@ -32,15 +36,15 @@ export const InvitationModal = ({ setIsOpen }) => (
               <ul className="mb-6 text-primaryText mt-12">
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Vestibulum viverra</span>
+                  <span>100+ languages</span>
                 </li>
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Morbi mollis metus pretium</span>
+                  <span>10x revenue</span>
                 </li>
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Etiam lectus nunc, commodo</span>
+                  <span>Reach millions of customers</span>
                 </li>
               </ul>
             </div>
