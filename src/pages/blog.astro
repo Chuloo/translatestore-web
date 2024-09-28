@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "../components/Navbar.jsx";
+import { Footer } from "../components/Footer.jsx";
+import { ScrollUpButton } from "../components/ScrollUpButton.jsx";
+import "../styles/Theme.css";
+
+// Import all MDX files from the blog directory
+const posts = await Astro.glob("./posts/*.mdx");
+---
+
+<Layout title="Blog | Tailcast">
+  <Navbar client:load />
+  <section class="w-screen flex justify-center bg-bgDark2 relative pt-10">
+    <div class="absolute -top-16" id="blog"></div>
+    <div class="container px-4 mb-20 pt-16">
+      <div
+        class="max-w-2xl text-center lg:text-left mb-16 mx-auto lg:ml-0 lg:mr-0"
+      >
+        <span class="block-subtitle">Our Blog</span>
+        <h2
+          class="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-primaryText"
+        >
+          Latest Insights
+        </h2>
+        <p class="mb-6 text-secondaryText">
+          Stay updated with the latest trends and insights in our industry.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          posts.map((post) => (
+            <div class="bg-bgDark3 rounded-3xl p-6 hover:bg-bgDark3Hover transition cursor-pointer">
+              <a href={post.url}>
+                <img
+                  src={post.frontmatter.image}
+                  alt={post.frontmatter.title}
+                  class="rounded-3xl mb-6 w-full"
+                />
+                <h3 class="mb-4 text-xl font-bold font-heading text-primaryText">
+                  {post.frontmatter.title}
+                </h3>
+                <p class="text-secondaryText leading-loose">
+                  {post.frontmatter.subtitle}
+                </p>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <Footer />
+  <ScrollUpButton client:load />
+</Layout>

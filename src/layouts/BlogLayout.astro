@@ -1,0 +1,36 @@
+---
+import { Article } from "../components/Article";
+import { Navbar } from "../components/Navbar";
+import { ScrollUpButton } from "../components/ScrollUpButton";
+import Layout from "./Layout.astro";
+
+export interface Props {
+  Content: any;
+  frontmatter: {
+    title: string;
+    subtitle: string;
+    image: string;
+    date: string;
+    author: string;
+    tags: string[];
+    file: string;
+    url: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <Navbar client:load />
+  <Article frontmatter={frontmatter} />
+  <div class="w-2/3 mx-auto">
+    <section
+      class="text-secondaryText !leading-8 sm:!leading-10 sm:text-xl text-left sm:text-justify mx-auto w-full md:w-10/12 lg:w-2/3 mt-16"
+      aria-labelledby="content-title"
+    >
+      <slot />
+    </section>
+  </div>
+  <ScrollUpButton client:load />
+</Layout>
