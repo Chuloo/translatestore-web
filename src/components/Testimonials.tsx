@@ -1,5 +1,5 @@
+// TODO: Update Testimonial information
 import { motion } from "framer-motion";
-
 import { QuoteIcon } from "../assets/icons/QuoteIcon";
 import testimonial1 from "../assets/images/testimonial1.png";
 import testimonial2 from "../assets/images/testimonial2.png";
@@ -39,9 +39,9 @@ export const Testimonials = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.3 }}
       >
-        <div className="block-subtitle text-center mb-6">Testimonials</div>
+        <div className="block-subtitle text-center mb-6">Successful stores</div>
         <div className="block-big-title text-center mb-20 px-8 sm:px-24 md:px-48">
-          People like you love Tailcast
+          Successful businesses like yours
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-5 xl:gap-10 px-6 xl:px-0 items-center">
