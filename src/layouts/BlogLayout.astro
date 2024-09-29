@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { Article } from "../components/Article";
 import { Navbar } from "../components/Navbar";
 import { ScrollUpButton } from "../components/ScrollUpButton";
 import Layout from "./Layout.astro";
+import { Footer } from "../components/Footer";
 
 export interface Props {
   Content: any;
@@ -24,13 +26,65 @@ const { frontmatter } = Astro.props;
 <Layout title={frontmatter.title}>
   <Navbar client:load />
   <Article frontmatter={frontmatter} />
-  <div class="w-2/3 mx-auto">
+  <div class="w-11/12 md:w-2/3 mx-auto">
+    {
+      frontmatter.image && (
+        <Image
+          src={import(`../assets/images/${frontmatter.image}`)}
+          alt={frontmatter.title}
+          class="rounded-2xl h-64 object-cover"
+        />
+      )
+    }
+  </div>
+
+  <div class="w-10/12 md:w-2/3 mx-auto mb-10">
     <section
-      class="text-secondaryText !leading-8 sm:!leading-10 sm:text-xl text-left sm:text-justify mx-auto w-full md:w-10/12 lg:w-2/3 mt-16"
+      class="prose prose-invert lg:prose-xl !leading-8 sm:!leading-10 mx-auto w-full md:w-10/12 lg:w-2/3 mt-16 text-white"
       aria-labelledby="content-title"
     >
       <slot />
     </section>
   </div>
   <ScrollUpButton client:load />
+  <Footer />
 </Layout>
+<style is:global>
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+  .prose h1 {
+    @apply text-4xl font-bold;
+  }
+  .prose h2 {
+    @apply text-3xl font-semibold;
+  }
+  .prose h3 {
+    @apply text-2xl font-medium;
+  }
+  .prose h4 {
+    @apply text-xl font-medium;
+  }
+  .prose h5 {
+    @apply text-lg font-medium;
+  }
+  .prose h6 {
+    @apply text-base font-medium;
+  }
+  .prose pre {
+    @apply p-4 my-6 rounded-lg;
+  }
+  .prose p,
+  li {
+    @apply text-[16px];
+  }
+  .prose code {
+    @apply px-1 py-0.5 rounded;
+  }
+</style>
